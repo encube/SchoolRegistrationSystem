@@ -1,0 +1,7 @@
+package com.onb.SchoolRegistrationSystem
+
+class Student {
+
+    static constraints = {
+    }
+}

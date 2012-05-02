@@ -1,0 +1,15 @@
+package com.onb.SchoolRegistrationSystem
+
+class Enrollment {
+	String idNumber
+	Date enrollmentDate
+	int schoolYear
+	String semester
+
+    static constraints = {
+	idNumber nullable:false, blank:false, size:1..8, unique:true
+	enrollmentDate nullable:false, blank:false
+	schoolYear nullable:false, blank:false
+	semester nullable:false, blank:false
+    }
+}

@@ -1,0 +1,11 @@
+package com.onb.SchoolRegistrationSystem
+
+class Section {
+	String idNumber
+	int maxStudent = 30
+
+    static constraints = {
+	idNumber nullable:false, blank:false, size:1..8, unique:true
+	maxStudent nullable:false, range:0..30
+    }
+}

@@ -1,0 +1,10 @@
+package com.onb.SchoolRegistrationSystem
+
+class Subject {
+	String name
+	BigDecimal fee
+
+    static constraints = {
+
+    }
+}

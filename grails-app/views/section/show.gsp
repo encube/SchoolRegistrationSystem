@@ -23,11 +23,49 @@
 			</g:if>
 			<ol class="property-list section">
 			
-				<g:if test="${sectionInstance?.maxStudent}">
+				<g:if test="${sectionInstance?.enrollment}">
 				<li class="fieldcontain">
-					<span id="maxStudent-label" class="property-label"><g:message code="section.maxStudent.label" default="Max Student" /></span>
+					<span id="enrollment-label" class="property-label"><g:message code="section.enrollment.label" default="Enrollment" /></span>
 					
-						<span class="property-value" aria-labelledby="maxStudent-label"><g:fieldValue bean="${sectionInstance}" field="maxStudent"/></span>
+						<span class="property-value" aria-labelledby="enrollment-label"><g:link controller="enrollment" action="show" id="${sectionInstance?.enrollment?.id}">${sectionInstance?.enrollment?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sectionInstance?.enrollments}">
+				<li class="fieldcontain">
+					<span id="enrollments-label" class="property-label"><g:message code="section.enrollments.label" default="Enrollments" /></span>
+					
+						<g:each in="${sectionInstance.enrollments}" var="e">
+						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sectionInstance?.subject}">
+				<li class="fieldcontain">
+					<span id="subject-label" class="property-label"><g:message code="section.subject.label" default="Subject" /></span>
+					
+						<span class="property-value" aria-labelledby="subject-label"><g:link controller="subject" action="show" id="${sectionInstance?.subject?.id}">${sectionInstance?.subject?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sectionInstance?.teacher}">
+				<li class="fieldcontain">
+					<span id="teacher-label" class="property-label"><g:message code="section.teacher.label" default="Teacher" /></span>
+					
+						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${sectionInstance?.teacher?.id}">${sectionInstance?.teacher?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sectionInstance?.timeSlot}">
+				<li class="fieldcontain">
+					<span id="timeSlot-label" class="property-label"><g:message code="section.timeSlot.label" default="Time Slot" /></span>
+					
+						<span class="property-value" aria-labelledby="timeSlot-label"><g:link controller="timeSlot" action="show" id="${sectionInstance?.timeSlot?.id}">${sectionInstance?.timeSlot?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

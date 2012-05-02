@@ -41,6 +41,37 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${subjectInstance?.course}">
+				<li class="fieldcontain">
+					<span id="course-label" class="property-label"><g:message code="subject.course.label" default="Course" /></span>
+					
+						<span class="property-value" aria-labelledby="course-label"><g:link controller="course" action="show" id="${subjectInstance?.course?.id}">${subjectInstance?.course?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${subjectInstance?.courses}">
+				<li class="fieldcontain">
+					<span id="courses-label" class="property-label"><g:message code="subject.courses.label" default="Courses" /></span>
+					
+						<g:each in="${subjectInstance.courses}" var="c">
+						<span class="property-value" aria-labelledby="courses-label"><g:link controller="course" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${subjectInstance?.sections}">
+				<li class="fieldcontain">
+					<span id="sections-label" class="property-label"><g:message code="subject.sections.label" default="Sections" /></span>
+					
+						<g:each in="${subjectInstance.sections}" var="s">
+						<span class="property-value" aria-labelledby="sections-label"><g:link controller="section" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

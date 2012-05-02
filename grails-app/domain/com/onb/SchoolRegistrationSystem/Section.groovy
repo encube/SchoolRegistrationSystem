@@ -1,9 +1,17 @@
 package com.onb.SchoolRegistrationSystem
 
 class Section {
-	int maxStudent = 30
+	static final int maxStudent = 30
+	
+	Subject subject
+	TimeSlot timeSlot
+	Teacher teacher
+	Enrollment enrollment
 
+	static belongsTo = [Subject, TimeSlot, Teacher, Enrollment]
+	static hasMany = [enrollments : Enrollment]
+	
+	
     static constraints = {
-	maxStudent nullable:false, range:0..30
     }
 }

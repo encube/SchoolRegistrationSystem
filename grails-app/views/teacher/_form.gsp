@@ -26,3 +26,20 @@
 	<g:textField name="lastName" required="" value="${teacherInstance?.lastName}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: teacherInstance, field: 'sections', 'error')} ">
+	<label for="sections">
+		<g:message code="teacher.sections.label" default="Sections" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${teacherInstance?.sections?}" var="s">
+    <li><g:link controller="section" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="section" action="create" params="['teacher.id': teacherInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'section.label', default: 'Section')])}</g:link>
+</li>
+</ul>
+
+</div>
+

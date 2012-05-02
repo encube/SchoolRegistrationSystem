@@ -24,7 +24,13 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="maxStudent" title="${message(code: 'section.maxStudent.label', default: 'Max Student')}" />
+						<th><g:message code="section.enrollment.label" default="Enrollment" /></th>
+					
+						<th><g:message code="section.subject.label" default="Subject" /></th>
+					
+						<th><g:message code="section.teacher.label" default="Teacher" /></th>
+					
+						<th><g:message code="section.timeSlot.label" default="Time Slot" /></th>
 					
 					</tr>
 				</thead>
@@ -32,7 +38,13 @@
 				<g:each in="${sectionInstanceList}" status="i" var="sectionInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sectionInstance.id}">${fieldValue(bean: sectionInstance, field: "maxStudent")}</g:link></td>
+						<td><g:link action="show" id="${sectionInstance.id}">${fieldValue(bean: sectionInstance, field: "enrollment")}</g:link></td>
+					
+						<td>${fieldValue(bean: sectionInstance, field: "subject")}</td>
+					
+						<td>${fieldValue(bean: sectionInstance, field: "teacher")}</td>
+					
+						<td>${fieldValue(bean: sectionInstance, field: "timeSlot")}</td>
 					
 					</tr>
 				</g:each>
